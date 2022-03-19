@@ -14,7 +14,6 @@ public class UIController : MonoBehaviour
             GameManager.instance.IsStart = true;
             StartScreenVisible();
             AnimationManager.instance.StartWalkAnimation();
-            AnimationManager.instance.StartFallingAnimation();
         }    
     }
 
