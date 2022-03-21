@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MoneyStack : MonoBehaviour
 {
+    public int counter;
     public List<Transform> moneyPositions;
     [SerializeField]
     private Transform spawnPosition, spawnParent;
     [SerializeField]
     private GameObject money;
-    public int counter;
+    [SerializeField]
+    private GameObject moneyParticleEffect;
 
     private void Start()
     {
@@ -49,6 +51,7 @@ public class MoneyStack : MonoBehaviour
                 }
             }
             counter += moneyCount;
+            Instantiate(moneyParticleEffect, new Vector3(0, .1f, spawnParent.position.z), transform.rotation);
         }
 
     }

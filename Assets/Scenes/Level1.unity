@@ -4309,11 +4309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938809f7cb28e304c92aa132a812f4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counter: 0
   moneyPositions: []
   spawnPosition: {fileID: 544623038}
   spawnParent: {fileID: 346832815}
   money: {fileID: 6909167277068263285, guid: 5bc4881f19a2e6849afc4e4556371318, type: 3}
-  counter: 0
+  moneyParticleEffect: {fileID: 8995576902908257631, guid: 6497219001fe6d04f9479da4194a5ff3, type: 3}
 --- !u!4 &1031632034739987126
 Transform:
   m_ObjectHideFlags: 0
