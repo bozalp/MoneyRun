@@ -6,17 +6,21 @@ public class StairMechanic : MonoBehaviour
 {
     [SerializeField]
     private GameObject money;
-    private float spawnRate = .2f, nextSpawn = 0f;
+    [SerializeField]
+    private float spawnRate;
+    private float nextSpawn = 0f;
     [SerializeField]
     private GameObject player;
     private Vector3 _nextPosition;
-
+    [SerializeField]
+    private MoneyStack moneyStack;
     private void Update()
     {
         if (Input.GetKey(KeyCode.Mouse0) && Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
             SpawnMoney();
+            AnimationManager.instance.StartWalkAnimation();
         }
     }
     private void SpawnMoney()

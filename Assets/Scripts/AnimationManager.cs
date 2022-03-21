@@ -44,7 +44,7 @@ public class AnimationManager : MonoBehaviour
                 StartFallingAnimation();
             }
         }
-        if (player.transform.position.y < 1 && GameManager.instance.IsStart)
+        if (player.transform.position.y < 1 && GameManager.instance.IsStart)// || Input.GetKey(KeyCode.Mouse0) )
         {
             player.GetComponent<Rigidbody>().useGravity = false;
             StartWalkAnimation();
