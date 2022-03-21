@@ -43,6 +43,7 @@ public class AnimationManager : MonoBehaviour
             if (player.transform.position.y > 1)
             {
                 player.GetComponent<Rigidbody>().useGravity = true;
+                //player.transform.localPosition = new Vector3(0, player.transform.localPosition.y - .5f, player.transform.localPosition.z);
                 StartFallingAnimation();
             }
         }
