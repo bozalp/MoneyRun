@@ -9,10 +9,11 @@ public class MoneyStack : MonoBehaviour
     private Transform spawnPosition, spawnParent;
     [SerializeField]
     private GameObject money;
+    public int counter;
 
     private void Start()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 15; i++)
         {
             for (int j = 0; j < 5; j++)
             {
@@ -43,10 +44,11 @@ public class MoneyStack : MonoBehaviour
                     {
                         spawnedMoney.transform.SetParent(moneyPositions[j]);
                         spawnedMoney.transform.localPosition = new Vector3(0, 0, 0);
-                        spawnedMoney.transform.eulerAngles = new Vector3(-90, Random.Range(60, 110), 0);
+                        spawnedMoney.transform.eulerAngles = new Vector3(-90, Random.Range(80, 110), 0);
                     }
                 }
             }
+            counter += moneyCount;
         }
 
     }

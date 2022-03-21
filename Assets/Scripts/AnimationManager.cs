@@ -8,6 +8,8 @@ public class AnimationManager : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private MoneyStack moneyStack;
     private void Singleton()
     {
         if (instance != null)
@@ -44,10 +46,15 @@ public class AnimationManager : MonoBehaviour
                 StartFallingAnimation();
             }
         }
-        if (player.transform.position.y < 1 && GameManager.instance.IsStart)// || Input.GetKey(KeyCode.Mouse0) )
+        if (player.transform.position.y < 1 && GameManager.instance.IsStart)
         {
             player.GetComponent<Rigidbody>().useGravity = false;
             StartWalkAnimation();
+        }
+        if (moneyStack.counter == 0 && Input.GetKey(KeyCode.Mouse0) && player.transform.position.y > .5f)
+        {
+            player.GetComponent<Rigidbody>().useGravity = true;
+            StartFallingAnimation();
         }
     }
 }

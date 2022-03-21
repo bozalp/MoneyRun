@@ -16,18 +16,25 @@ public class StairMechanic : MonoBehaviour
     private MoneyStack moneyStack;
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && Time.time > nextSpawn)
-        {
+        if (Input.GetKey(KeyCode.Mouse0) && Time.time > nextSpawn && moneyStack.counter != 0)
+        {            
             nextSpawn = Time.time + spawnRate;
-            SpawnMoney();
+            SpawnMoneyStairs();
             AnimationManager.instance.StartWalkAnimation();
         }
     }
-    private void SpawnMoney()
+    private void SpawnMoneyStairs()
     {
-        _nextPosition = new Vector3(0, player.transform.localPosition.y + .2f, player.transform.localPosition.z);
-        player.transform.localPosition = Vector3.MoveTowards(player.transform.localPosition, _nextPosition, 1f);
-        GameObject spawnedMoney = Instantiate(money, transform.position, money.transform.rotation);
-        Destroy(spawnedMoney, 2f);
+        if(moneyStack.counter != 0)
+        {
+            _nextPosition = new Vector3(0, player.transform.localPosition.y + .5f, player.transform.localPosition.z);
+            //player.transform.localPosition = Vector3.MoveTowards(player.transform.localPosition, _nextPosition, 1f);
+            player.transform.localPosition = _nextPosition;
+            Destroy(moneyStack.moneyPositions[moneyStack.counter - 1].GetChild(0).gameObject);
+            moneyStack.counter--;
+            //moneyStack.moneyPositions[i].GetChild(0).position = transform.position;
+            GameObject spawnedMoney = Instantiate(money, transform.position, money.transform.rotation);
+            Destroy(spawnedMoney, 2f);
+        }
     }
 }
