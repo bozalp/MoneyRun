@@ -31,6 +31,14 @@ public class MoneyStack : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (transform.localPosition.y <= 0 && !GetComponent<Rigidbody>().useGravity)
+        {
+            transform.localPosition = new Vector3(0, 0, transform.localPosition.z);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.CompareTag("Money"))
@@ -53,6 +61,16 @@ public class MoneyStack : MonoBehaviour
             counter += moneyCount;
             Instantiate(moneyParticleEffect, new Vector3(0, .4f, spawnParent.position.z), transform.rotation);
         }
-
+        if(other.transform.CompareTag("Space"))//2 yol arasindaki boslukta gravity aciyorum. Karakter asagi dusebilsin diye.
+        {
+            GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.CompareTag("Space"))//2 yol arasindaki bosluktan gecince gravity kapatiyorum.
+        {
+            GetComponent<Rigidbody>().useGravity = false;
+        }
     }
 }

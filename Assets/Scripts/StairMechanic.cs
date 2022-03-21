@@ -44,8 +44,6 @@ public class StairMechanic : MonoBehaviour
             _nextPosition = new Vector3(0, player.transform.localPosition.y - 5f * Time.deltaTime, player.transform.localPosition.z);
             player.transform.localPosition = _nextPosition;
         }
-        if (player.transform.localPosition.y <= 0)
-            player.transform.localPosition = new Vector3(0, 0, player.transform.localPosition.z);
     }
     private void SpawnMoneyStairs()
     {
