@@ -51,7 +51,7 @@ public class MoneyStack : MonoBehaviour
                 }
             }
             counter += moneyCount;
-            Instantiate(moneyParticleEffect, new Vector3(0, .1f, spawnParent.position.z), transform.rotation);
+            Instantiate(moneyParticleEffect, new Vector3(0, .4f, spawnParent.position.z), transform.rotation);
         }
 
     }

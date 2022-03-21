@@ -42,19 +42,19 @@ public class AnimationManager : MonoBehaviour
         {
             if (player.transform.position.y > 1)
             {
-                player.GetComponent<Rigidbody>().useGravity = true;
-                //player.transform.localPosition = new Vector3(0, player.transform.localPosition.y - .5f, player.transform.localPosition.z);
+                //player.GetComponent<Rigidbody>().useGravity = true;
+                        //player.transform.localPosition = new Vector3(0, player.transform.localPosition.y - .5f, player.transform.localPosition.z);
                 StartFallingAnimation();
             }
         }
         if (player.transform.position.y < 1 && GameManager.instance.IsStart)
         {
-            player.GetComponent<Rigidbody>().useGravity = false;
+            //player.GetComponent<Rigidbody>().useGravity = false;
             StartWalkAnimation();
         }
         if (moneyStack.counter == 0 && Input.GetKey(KeyCode.Mouse0) && player.transform.position.y > .5f)
         {
-            player.GetComponent<Rigidbody>().useGravity = true;
+            //player.GetComponent<Rigidbody>().useGravity = true;
             StartFallingAnimation();
         }
     }
