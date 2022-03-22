@@ -21,17 +21,8 @@ public class UIController : MonoBehaviour
         }    
     }
 
-    public void StartScreenVisible()
-    {
-        startScreen.SetActive(false);
-    }
-    public void LevelEndScreenVisible()
-    {
-        levelEndScreen.SetActive(true);
-    }
-    public void NextLevel()
-    {
-        SceneManager.LoadScene(0);
-    }
+    public void StartScreenVisible() => startScreen.SetActive(false);
+    public void LevelEndScreenVisible() => levelEndScreen.SetActive(true);
+    public void NextLevel() => SceneManager.LoadScene(0);
     #endregion
 }
