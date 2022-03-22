@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CollectableMoney : MonoBehaviour
 {
+    #region Fields
     private int moneyCount;
-    private void Start()
-    {
-        moneyCount = GetComponentsInChildren<Transform>().Length - 1;
-    }
+    #endregion
+
+    #region Properties
     public int MoneyCount
     {
         get
@@ -16,5 +16,11 @@ public class CollectableMoney : MonoBehaviour
             return moneyCount;
         }
     }
-   
+    #endregion
+    #region Methods
+    private void Start()
+    {
+        moneyCount = GetComponentsInChildren<Transform>().Length - 1;
+    }
+    #endregion
 }

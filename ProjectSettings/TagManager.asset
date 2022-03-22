@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Money
   - Path
-  - Space
+  - Obstacle
+  - Gate
   layers:
   - Default
   - TransparentFX

@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
+    #region Fields
     public static AnimationManager instance;
+
     private Animator animator;
     [SerializeField]
     private GameObject player;
     [SerializeField]
     private MoneyStack moneyStack;
+    #endregion
+
+    #region Methods
     private void Singleton()
     {
         if (instance != null)
@@ -42,20 +47,17 @@ public class AnimationManager : MonoBehaviour
         {
             if (player.transform.position.y > 1)
             {
-                //player.GetComponent<Rigidbody>().useGravity = true;
-                        //player.transform.localPosition = new Vector3(0, player.transform.localPosition.y - .5f, player.transform.localPosition.z);
                 StartFallingAnimation();
             }
         }
         if (player.transform.position.y < 1 && GameManager.instance.IsStart)
         {
-            //player.GetComponent<Rigidbody>().useGravity = false;
             StartWalkAnimation();
         }
         if (moneyStack.counter == 0 && Input.GetKey(KeyCode.Mouse0) && player.transform.position.y > .5f)
         {
-            //player.GetComponent<Rigidbody>().useGravity = true;
             StartFallingAnimation();
         }
     }
+    #endregion
 }

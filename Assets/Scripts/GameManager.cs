@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Fields
     public static GameManager instance;
     private bool _isStart;
-
+    #endregion
+    #region Properties
     public bool IsStart
     {
         get
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
             _isStart = value;
         }
     }
+    #endregion
+
+    #region Methods
     private void Singleton()
     {
         if (instance != null)
@@ -33,4 +38,5 @@ public class GameManager : MonoBehaviour
     {
         Singleton();
     }
+    #endregion
 }

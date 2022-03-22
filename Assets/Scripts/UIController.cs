@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    #region Fields
     [SerializeField]
     private GameObject startScreen;
+    #endregion
 
+    #region Methods
     private void Update()
     {
         if(!GameManager.instance.IsStart && Input.GetKey(KeyCode.Mouse0))
@@ -21,4 +24,5 @@ public class UIController : MonoBehaviour
     {
         startScreen.SetActive(false);
     }
+    #endregion
 }

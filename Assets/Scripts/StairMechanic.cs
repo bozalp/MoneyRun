@@ -5,20 +5,22 @@ using DG.Tweening;
 
 public class StairMechanic : MonoBehaviour
 {
+    #region Fields
     [SerializeField]
     private GameObject money;
     [SerializeField]
-    private float spawnRate;
-    private float nextSpawn = 0f;
+    private float spawnRate;    
     [SerializeField]
-    private GameObject player;
-    private Vector3 _nextPosition;
+    private GameObject player;    
     [SerializeField]
     private MoneyStack moneyStack;
-    private bool playerDown;
-    private TweenCallback callback;
-    private Tween moveTween;
 
+    private float nextSpawn = 0f;
+    private Vector3 _nextPosition;
+    private bool playerDown;
+    private Tween moveTween;
+    #endregion
+    #region Methods
     private void Start()
     {
         DOTween.Init();
@@ -51,14 +53,11 @@ public class StairMechanic : MonoBehaviour
         {
             _nextPosition = new Vector3(0, player.transform.localPosition.y + .8f, player.transform.localPosition.z);
             moveTween = player.transform.DOLocalMove(_nextPosition, .5f);
-            
-            //player.transform.localPosition = _nextPosition;
-
             Destroy(moneyStack.moneyPositions[moneyStack.counter - 1].GetChild(0).gameObject);
             moneyStack.counter--;
-            //moneyStack.moneyPositions[i].GetChild(0).position = transform.position;
             GameObject spawnedMoney = Instantiate(money, transform.position, money.transform.rotation);
             Destroy(spawnedMoney, 2f);
         }
     }
+    #endregion
 }
