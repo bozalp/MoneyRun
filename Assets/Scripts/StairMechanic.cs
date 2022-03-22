@@ -43,7 +43,7 @@ public class StairMechanic : MonoBehaviour
         }
         if(playerDown)
         {
-            _nextPosition = new Vector3(0, player.transform.localPosition.y - 5f * Time.deltaTime, player.transform.localPosition.z);
+            _nextPosition = new Vector3(0, player.transform.localPosition.y - 7f * Time.deltaTime, player.transform.localPosition.z);
             player.transform.localPosition = _nextPosition;
         }
     }
