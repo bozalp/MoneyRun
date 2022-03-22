@@ -82,6 +82,10 @@ public class MoneyStack : MonoBehaviour
                 }
             }
         }
+        if(other.transform.CompareTag("Finish"))
+        {
+            GameManager.instance.IsFinish = true;
+        }
     }
     private void AddMoney(int moneyCount)
     {

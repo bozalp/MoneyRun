@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
     #region Fields
     [SerializeField]
-    private GameObject startScreen;
+    private GameObject startScreen, levelEndScreen;
     #endregion
 
     #region Methods
@@ -23,6 +24,14 @@ public class UIController : MonoBehaviour
     public void StartScreenVisible()
     {
         startScreen.SetActive(false);
+    }
+    public void LevelEndScreenVisible()
+    {
+        levelEndScreen.SetActive(true);
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(0);
     }
     #endregion
 }

@@ -39,24 +39,30 @@ public class AnimationManager : MonoBehaviour
     public void StartFallingAnimation()
     {
         animator.SetLayerWeight(1, 1);
-
+    }
+    public void StartDanceAnimation()
+    {
+        animator.SetTrigger("Dance");
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if(!GameManager.instance.IsFinish)
         {
-            if (player.transform.position.y > 1)
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                if (player.transform.position.y > 1)
+                {
+                    StartFallingAnimation();
+                }
+            }
+            if (player.transform.position.y < 1 && GameManager.instance.IsStart)
+            {
+                StartWalkAnimation();
+            }
+            if (moneyStack.counter == 0 && Input.GetKey(KeyCode.Mouse0) && player.transform.position.y > .5f)
             {
                 StartFallingAnimation();
             }
-        }
-        if (player.transform.position.y < 1 && GameManager.instance.IsStart)
-        {
-            StartWalkAnimation();
-        }
-        if (moneyStack.counter == 0 && Input.GetKey(KeyCode.Mouse0) && player.transform.position.y > .5f)
-        {
-            StartFallingAnimation();
         }
     }
     #endregion

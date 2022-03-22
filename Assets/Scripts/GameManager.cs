@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     #region Fields
     public static GameManager instance;
-    private bool _isStart;
+    private bool _isStart, _isFinish;
     #endregion
     #region Properties
     public bool IsStart
@@ -18,6 +18,17 @@ public class GameManager : MonoBehaviour
         set
         {
             _isStart = value;
+        }
+    } 
+    public bool IsFinish
+    {
+        get
+        {
+            return _isFinish;
+        }
+        set
+        {
+            _isFinish = value;
         }
     }
     #endregion
