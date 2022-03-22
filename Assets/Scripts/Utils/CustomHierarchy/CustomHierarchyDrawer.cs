@@ -49,9 +49,6 @@ public class CustomHierarcyDrawer
             Rect backgroundRect = inSelectionRect;
             backgroundRect.x = 0;
             backgroundRect.xMax *= 1.5f;
-
-            //EditorGUI.DrawRect(BackgroundOffset, bgCol * 1.5f);
-            //EditorGUI.DrawRect(BackgroundOffset, Color.white * 0.5f);
             EditorGUI.DrawRect(backgroundRect, selectionColor);
         }
     }
@@ -67,9 +64,7 @@ public class CustomHierarcyDrawer
 
             #endregion
 
-            //Draw selected background color on to hierachy object
             #region Draw Background
-            //Only draw background if background color is not completely transparent
             if (bgCol.a > 0f)
             {
                 Rect backgroundRect = inSelectionRect;
@@ -78,18 +73,10 @@ public class CustomHierarcyDrawer
 
                 EditorGUI.DrawRect(backgroundRect, bgCol);
             }
-
-
             #endregion
-
-
-         
-
             EditorApplication.RepaintHierarchyWindow();
         }
     }
-
-
 }
 
 #endif

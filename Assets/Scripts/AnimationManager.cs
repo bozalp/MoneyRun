@@ -36,14 +36,9 @@ public class AnimationManager : MonoBehaviour
         animator.SetLayerWeight(1, 0);
         animator.SetTrigger("Walk");
     }
-    public void StartFallingAnimation()
-    {
-        animator.SetLayerWeight(1, 1);
-    }
-    public void StartDanceAnimation()
-    {
-        animator.SetTrigger("Dance");
-    }
+    public void StartFallingAnimation()=> animator.SetLayerWeight(1, 1);
+    public void StartDanceAnimation() => animator.SetTrigger("Dance");
+
     private void Update()
     {
         if(!GameManager.instance.IsFinish)
